@@ -1,0 +1,8 @@
+{
+  "files.associations": {
+    "bitset": "cpp",
+    "array": "cpp",
+    "iostream": "cpp"
+  },
+  "C_Cpp.errorSquiggles": "enabled"
+}

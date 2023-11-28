@@ -1,0 +1,1 @@
+input.at(i) == input.at(i - 1)
