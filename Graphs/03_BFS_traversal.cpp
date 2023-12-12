@@ -2,6 +2,8 @@
 #include <vector>
 #include <queue>
 
+//time complexity O(N) + O(E)
+
 using namespace std;
 
 void BFS(int x, vector<bool> &vis, vector<int> adj[], vector<int> &bfs)
