@@ -24,7 +24,7 @@ int bfs(vector<vector<bool>> &vis, vector<vector<int>> &grid, int n, int m, queu
         int row = q.front().first.first;
         int col = q.front().first.second;
         int time = q.front().second;
-        finalTime = time;
+        finalTime = max(finalTime, time);
 
         q.pop();
         for (int x = 0; x < 4; x++)
