@@ -1,6 +1,8 @@
 /*
-    Problem : Given a gridof size n * m (n is the number of rows and m is number of columns in the grid) consisting of '0's (water) and '1's (land). Find the number of islands.
-    Note : An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically or digonally i.e., in all 8 directions
+    Problem : Given a gridof size n * m (n is the number of rows and m is number of columns in the grid) consisting of '0's (water) and '1's (land).
+    Find the number of islands.
+    Note : An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically or digonally i.e., in all 8
+     directions
 */
 #include <iostream>
 #include <vector>
