@@ -12,11 +12,12 @@
 #include <vector>
 using namespace std;
 
-int bfs(vector<vector<bool>> &vis, vector<vector<int>> &grid, int n, int m, queue<pair<pair<int, int>, int>> &q)
+pair<int, int> bfs(vector<vector<bool>> &vis, vector<vector<int>> &grid, int n, int m, queue<pair<pair<int, int>, int>> &q)
 {
 
     int delx[] = {-1, 0, 1, 0};
     int dely[] = {0, 1, 0, -1};
+    int cnt = 0;
     int finalTime = 0;
 
     while (!q.empty())
@@ -36,11 +37,12 @@ int bfs(vector<vector<bool>> &vis, vector<vector<int>> &grid, int n, int m, queu
             {
                 grid[newRow][newCol] = 2;
                 vis[newRow][newCol] = true;
+                cnt++;
                 q.push({{newRow, newCol}, time + 1});
             }
         }
     }
-    return finalTime;
+    return {finalTime, cnt};
 }
 
 int main()
@@ -60,7 +62,7 @@ int main()
 
     queue<pair<pair<int, int>, int>> q;
 
-    int count = 0;
+    int cntFresh = 0;
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < m; j++)
@@ -69,9 +71,22 @@ int main()
             {
                 q.push({{i, j}, 0});
             }
+            else
+            {
+                cntFresh++;
+            }
         }
     }
 
-    count = bfs(vis, grid, n, m, q);
-    cout << "Minimum time to rot all oranges are : " << count << endl;
+    pair<int, int> res = bfs(vis, grid, n, m, q);
+
+    if (res.second != cntFresh)
+    {
+        cout << "-1" << endl;
+    }
+    else
+    {
+
+        cout << "Minimum time to rot all oranges are : " << res.first << endl;
+    }
 }
