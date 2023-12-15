@@ -15,7 +15,6 @@ void solve(vector<vector<int>> &adj, vector<vector<bool>> &vis, vector<vector<in
             {
                 q.push({{i, j}, 0});
                 vis[i][j] = true;
-                adj[i][j] = 0;
             }
         }
     }
