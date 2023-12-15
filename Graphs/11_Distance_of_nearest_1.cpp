@@ -18,28 +18,28 @@ void solve(vector<vector<int>> &adj, vector<vector<bool>> &vis, vector<vector<in
             }
         }
     }
+    int delrow[] = {-1, 0, 1, 0};
+    int delcol[] = {0, 1, 0, -1};
 
     while (!q.empty())
     {
-        int x = q.front().first.first;
-        int y = q.front().first.second;
-        int t = q.front().second;
+        int row = q.front().first.first;
+        int col = q.front().first.second;
+
+        int steps = q.front().second;
 
         q.pop();
+        output[row][col] = steps;
 
-        int delx[] = {-1, 0, 1, 0};
-        int dely[] = {0, -1, 0, 1};
-
-        for (int a = 0; a < 4; a++)
+        for (int i = 0; i < 4; i++)
         {
-            int X = x + delx[a];
-            int Y = y + dely[a];
+            int nrow = row + delrow[i];
+            int ncol = col + delcol[i];
 
-            if (X >= 0 && X < n && Y >= 0 && Y < m && adj[X][Y] == 0 && vis[X][Y] == false)
+            if (nrow >= 0 && ncol >= 0 && nrow < n && ncol < m && vis[nrow][ncol] == false)
             {
-                output[X][Y] = t + 1;
-                vis[X][Y] = true;
-                q.push({{X, Y}, t + 1});
+                vis[nrow][ncol] = 1;
+                q.push({{nrow, ncol}, steps + 1});
             }
         }
     }
