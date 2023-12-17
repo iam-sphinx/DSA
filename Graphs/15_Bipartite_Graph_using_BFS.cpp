@@ -8,24 +8,23 @@ using namespace std;
 
 bool checkBipartite(vector<int> adj[], vector<int> &color, int idx)
 {
-    queue<pair<int, int>> q;
-    q.push({idx, 0});
+    queue<int> q;
+    q.push(idx);
     color[idx] = 0;
 
     while (!q.empty())
     {
-        int node = q.front().first;
-        int col = q.front().second;
+        int node = q.front();
         q.pop();
 
         for (auto adjNode : adj[node])
         {
             if (color[adjNode] == -1)
             {
-                color[adjNode] = !col;
-                q.push({adjNode, !col});
+                color[adjNode] = !color[node];
+                q.push(adjNode);
             }
-            else if (color[adjNode] == col)
+            else if (color[adjNode] == color[node])
             {
                 return false;
             }
