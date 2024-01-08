@@ -83,4 +83,16 @@ public:
             size[ulp_u] += size[ulp_v];
         }
     }
+
+    // get size
+    int getSize(int node)
+    {
+        return size[node];
+    }
+
+    // get rank
+    int getRank(int node)
+    {
+        return rank[node];
+    }
 };
